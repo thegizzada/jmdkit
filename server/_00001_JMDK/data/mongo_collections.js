@@ -1,0 +1,1 @@
+JMDK_DivisionArchive = new Meteor.Collection('jmdk_divisionarchive');

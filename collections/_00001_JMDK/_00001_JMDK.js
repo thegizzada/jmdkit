@@ -1,0 +1,1 @@
+JMDK_Division = new Meteor.Collection('jmdk_division');

@@ -1,0 +1,73 @@
+<template name = 'JamakerDevelopmentKit'>
+    <div id = '{{organization_id}}' class = 'JamakerDevelopmentKit' style = '{{CSS}}'>
+        {{#each JMDKDivisionList}} {{> JMDK_division}} {{/each}}
+    </div>
+</template>
+
+<!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////////
+    "JMDK" stands for "Jamaker Website Builder Module"/////////////////////////////////////////
+        The purpose of this system is to make the creation of Gizzada's applications easier, it
+        will be possible to embed this Builder into all projects and then come to Jamaker to
+        customize the web pages. The goal being to begin minimizing new code written, and
+        reduce the barrier to entry for others to make adjustments / improvements to UI.
+    ////
+        Each module has parameters and styles which are used to display the data. It is
+        essentially writing HTML5 * CSS3 * JS with the use of a GUI. This GUI will in
+        turn reduce the amount of hard-code writing done in the future, and make maintenance
+        a walk in the park relatively. Client sites & apps will get their operating systems
+        updated to keep in line with the most current version of the JWB, which will in turn
+        carry with it all new features developed for the JWB community. 
+    JWB v0.0.1/////////////////////////////////////////////////////////////////////////////////
+    ///////////////////////////////////////////////////////////////////////////////////////////
+-->
+
+<template name = 'JMDK_division'>
+    {{#if JMDKis_box}} {{> JMDK_box}} {{/if}}
+    {{#if JMDKis_columns}} {{> JMDK_columns}} {{/if}}
+    {{#if JMDKis_slideshow}} {{> JMDK_slideshow}} {{/if}}
+    {{#if JMDKis_text}} {{> JMDK_text}} {{/if}}
+    {{#if JMDKis_image}} {{> JMDK_image}} {{/if}}
+    {{#if JMDKis_button}} {{> JMDK_button}} {{/if}}
+</template>
+
+    <template name = 'JMDK_box'>
+        <div id = '{{divisionId}}' class = '{{_id}} JMDK_element JMDK_box' style = '{{CSS}}'>{{#momentum plugin=JMDK_showTemplatePlugin}}{{#if JMDK_showTemplate}}
+            {{{HTML}}}
+            {{#each JMDKSubDivisionList}} {{> JMDK_division}} {{/each}}
+        {{/if}}{{/momentum}}</div>
+    </template>
+
+    <template name = 'JMDK_columns'>
+        <div id = '{{divisionId}}' class = '{{_id}} JMDK_element JMDK_columns' style = '{{CSS}}'>
+            {{{HTML}}}
+            {{#if columnCount}}<div class='ui doubling stackable {{columnCount}} column grid' style = 'margin: 0px !important; padding: 0px !important;'>
+                {{#each JMDKSubDivisionList}} <div class = 'column' style = 'margin: 0px !important; padding: 0px !important;'> {{> JMDK_division}} </div> {{/each}}
+            </div>{{/if}}
+        </div>
+    </template>
+
+    <template name = 'JMDK_slideshow'>
+        <div id = '{{divisionId}}' class = '{{_id}} JMDK_element JMDK_slideshow' style = '{{CSS}}'>
+            {{{HTML}}}
+            {{#each JMDKSubDivisionList}} {{> JMDK_division}} {{/each}}
+        </div>
+    </template>
+
+        <template name = 'JMDK_text'>
+            <div id = '{{divisionId}}' class = '{{_id}} JMDK_element JMDK_text' style = '{{CSS}}'>
+                {{{HTML}}}
+            </div>
+        </template>
+
+        <template name = 'JMDK_image'>
+            <div id = '{{divisionId}}' class = '{{_id}} JMDK_element JMDK_image' style = '{{CSS}}'>
+                {{{HTML}}}
+            </div>
+        </template>
+
+        <template name = 'JMDK_button'>
+            <div id = '{{divisionId}}' class = '{{_id}} JMDK_element JMDK_button' style = '{{CSS}}'>
+                {{{HTML}}}
+            </div>
+        </template>

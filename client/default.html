@@ -1,0 +1,27 @@
+<head>
+	<meta name="viewport" content="initial-scale=1.0, width=device-width, height=device-height, maximum-scale=1.0, user-scalable=no, viewport-fit=cover"/>
+	<meta name="author" content="Gizzada">
+	<meta name="contact" content="https://www.GizzadaSoftware.com">
+	<meta name="web_author" content="Gizzada">
+
+	<link href='/questrial/stylesheet.css' rel='stylesheet' type='text/css'>
+	<link href='/lemonMilk/stylesheet.css' rel='stylesheet' type='text/css'>
+</head>
+
+<template name = 'JMDKIT'>
+    {{#with JMDK}} {{> JamakerDevelopmentKit}} {{/with}}
+</template>
+
+<template name = 'default'>
+	<div id = 'measureInterface' class = '{{measureInterface}}'></div>
+	<div id = 'JMDK_pendingSubForeground' style = 'opacity: {{JMDK_pendingSubOpacity}}; pointer-events: {{JMDK_pendingSubPointer}};'>
+		<div id = 'progressBar'>
+			<div id = 'progress' style = 'width: {{JMDK_pendingSubProgress}};'></div>
+		</div>
+	</div> <div id = 'JMDK_pendingSubBackground' style = 'opacity: {{JMDK_pendingSubOpacity}}; pointer-events: {{JMDK_pendingSubPointer}};'></div>
+</template>
+
+<template name = 'interface'>
+    {{> default}}
+    {{> JMDKIT}}
+</template>
